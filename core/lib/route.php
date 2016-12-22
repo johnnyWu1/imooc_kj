@@ -37,7 +37,7 @@ class route
                 $this->action = $pathArray[1];
                 unset($pathArray[1]);
             } else {
-                $this->action = 'index';
+                $this->action = conf::get('ACTION','route');
             }
             // url多余部分转换成 GET
 
@@ -53,8 +53,8 @@ class route
 
 
         } else {
-            $this->ctr = 'index';
-            $this->action = 'index';
+            $this->ctrl = conf::get('CTRL','route');
+            $this->action = conf::get('ACTION','route');
         }
     }
 }

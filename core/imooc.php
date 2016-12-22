@@ -12,17 +12,20 @@ namespace core;
 class imooc {
 
     public static $classMap = array();
+    private $data = array();
 
     static public function run() {
+        \core\lib\log::init();
         $route = new \core\lib\route();
         $ctrlClass = $route->ctrl;
         $action = $route->action;
         $ctrlFile = APP.'/ctrl/'.$ctrlClass.'Ctrl.php';
-
+        $ctrlClass = '\\'.MODULE .'\\ctrl\\'.$ctrlClass.'Ctrl';
         if(is_file($ctrlFile)){
             include $ctrlFile;
-            p(MODULE.'ctrl/'.$ctrlClass.'Ctrl()');
-            new MODULE.'ctrl/'.$ctrlClass.'Ctrl()';
+            $ctrl = new $ctrlClass();
+            $ctrl->$action();
+            \core\lib\log::log('ctrl:'.$ctrlClass.'     '.'action:'.$action);
         } else {
             throw new \Exception('找不到控制器'.$ctrlClass);
         }
@@ -41,11 +44,23 @@ class imooc {
             return true;
         }
         if(is_file($file)){
-
             include($file);
             self::$classMap[$class] = true;
         }else{
             return false;
         }
     }
+
+    public function assign($name, $value) {
+        $this->data[$name] = $value;
+    }
+
+    public function display($file) {
+        $file = APP. '/views/'.$file;
+        if(is_file($file)){
+            extract($this->data);
+            include $file;
+        }
+    }
+
 }
