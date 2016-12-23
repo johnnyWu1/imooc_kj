@@ -1,0 +1,23 @@
+{
+    "name": "jonney/imooc_php",
+    "description": "php framework",
+    "type": "Framework",
+    "authors": [
+        {
+            "name": "johnney",
+            "email": "842269153@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">= 5.3.0",
+        "filp/whoops": "*",
+        "symfony/var-dumper": "*",
+        "catfan/medoo": "^1.1"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
