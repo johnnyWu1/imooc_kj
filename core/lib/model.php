@@ -23,11 +23,8 @@ class model extends \medoo
 //        } catch (\PDOException $e) {
 //            p($e->getMessage());
 //        }
-
         $options = conf::getAll('database');
         parent::__construct($options);
-
-
     }
 
 }

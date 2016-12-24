@@ -8,9 +8,9 @@
 
 return array(
     'database_type' => 'mysql',
-    'database_name' => 'name',
+    'database_name' => 'test',
     'server' => 'localhost',
-    'username' => 'your_username',
-    'password' => 'your_password',
+    'username' => 'root',
+    'password' => '123456',
     'charset' => 'utf8'
 );

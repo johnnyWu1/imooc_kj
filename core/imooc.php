@@ -9,6 +9,10 @@
 namespace core;
 
 
+use Twig_Autoloader;
+use Twig_Environment;
+use Twig_Loader_Filesystem;
+
 class imooc {
 
     public static $classMap = array();
@@ -56,11 +60,14 @@ class imooc {
     }
 
     public function display($file) {
-        $file = APP. '/views/'.$file;
-        if(is_file($file)){
-            extract($this->data);
-            include $file;
-        }
+//            extract($this->data);
+//            include $file;
+        $loader = new Twig_Loader_Filesystem(APP.'/views');
+        $twig = new Twig_Environment($loader, array(
+            'cache' => IMOOC.'/tmp/',
+            'debug' => DEBUG
+        ));
+        echo  $twig->render($file, $this->data?$this->data:'');
     }
 
 }
