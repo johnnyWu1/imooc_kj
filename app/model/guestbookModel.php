@@ -11,13 +11,18 @@ namespace app\model;
 
 use core\lib\model;
 
-class cModel extends model {
+class guestbookModel extends model {
 
-    public $table = 't1';
-    public function  lists(){
+    public $table = 'guestbook';
+    public function  all(){
         $ret = $this->select($this->table,'*');
         return $ret;
     }
+
+    public function addOne(){
+
+    }
+
 
     public function getOne($id){
         return $this->get($this->table,'*',[

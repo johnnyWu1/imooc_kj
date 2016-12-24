@@ -13,22 +13,18 @@ use core\lib\model;
 
 class indexCtrl extends \core\imooc
 {
-    public function index() {
-//        p('it is index');
-        $model = new cModel();
-//        $sql = "select * from t1";
-//        $ret = $model->query($sql);
-//        p($ret->fetchAll());
-        $data = $model->getOne(2);
-        $this->assign('data',$data);
-        $this->display('index.html');
+    //所有留言
+    public function index(){
     }
 
+    //添加留言
+    public function add(){
 
-    public function test() {
-//        p('it is index');
-        $this->assign('data',['name'=>'test']);
-        $this->display('test.html');
+    }
+
+    //保存留言
+    public function save(){
+
     }
 
 
