@@ -9,7 +9,6 @@
 namespace core;
 
 
-use Twig_Autoloader;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
@@ -67,7 +66,7 @@ class imooc {
             'cache' => IMOOC.'/tmp/',
             'debug' => DEBUG
         ));
-        echo  $twig->render($file, $this->data?$this->data:'');
+        echo  $twig->render($file, $this->data?$this->data:array());
     }
 
 }

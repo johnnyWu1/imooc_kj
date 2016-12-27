@@ -5,13 +5,21 @@
     <title>这是视图文件</title>
 </head>
 <body>
-    <header>header</header>
+    <header>
+        <h1>超级简单留言板</h1>
+        <div>
+            <a href="/">所有留言</a>
+            <a href="/index/add">添加留言</a>
+        </div>
+    </header>
 
     <content>
         {% block  content %}
         {% endblock %}
     </content>
 
-    <footer>footer</footer>
+    <footer>
+        <p>© 2016 超级简单留言板</p>
+    </footer>
 </body>
 </html>
